@@ -473,7 +473,7 @@
     </div>
 
     <!-- Modal Template -->
-    <div id="modal" class="modal-overlay hidden">
+    <!-- <div id="modal" class="modal-overlay hidden">
         <div class="modal-content">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-4">
@@ -490,7 +490,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--Developer Credit-->
     <div class="fixed left-4 top-4 hidden md:block">
@@ -572,7 +572,7 @@
 
             initializeUI() {
                 // Desktop controls
-                document.getElementById('new-game-btn')?.addEventListener('click', () => this.newGame());
+                //document.getElementById('new-game-btn')?.addEventListener('click', () => this.newGame());
                 document.getElementById('undo-btn')?.addEventListener('click', () => this.undoMove());
                 document.getElementById('hint-btn')?.addEventListener('click', () => this.showHint());
                 document.getElementById('ai-move-btn')?.addEventListener('click', () => this.makeAIMove());
@@ -591,7 +591,7 @@
                 });
 
                 // Mobile control buttons
-                document.getElementById('mobile-new-game')?.addEventListener('click', () => this.newGame());
+               // document.getElementById('mobile-new-game')?.addEventListener('click', () => this.newGame());
                 document.getElementById('mobile-undo')?.addEventListener('click', () => this.undoMove());
                 document.getElementById('mobile-hint')?.addEventListener('click', () => this.showHint());
                 document.getElementById('mobile-ai-move')?.addEventListener('click', () => this.makeAIMove());
@@ -1232,13 +1232,13 @@
                 if (inCheck && !hasValidMoves) {
                     this.gameStatus = 'checkmate';
                     const winner = this.currentPlayer === 'white' ? 'Black' : 'White';
-                    this.showModal('Game Over!', `Checkmate! ${winner} wins!`);
-                } else if (!hasValidMoves) {
-                    this.gameStatus = 'stalemate';
-                    this.showModal('Game Over!', 'Stalemate! It\'s a draw!');
-                } else if (inCheck) {
-                    this.showNotification('Check!');
-                }
+                    this.showNotification(`Game Over! Checkmate! ${winner} wins!`);
+                    } else if (!hasValidMoves) {
+                        this.gameStatus = 'stalemate';
+                        this.showNotification('Game Over! Stalemate! It\'s a draw!');
+                        } else if (inCheck) {
+                            this.showNotification('Check!');
+                            }
             }
 
             hasValidMoves(color) {
